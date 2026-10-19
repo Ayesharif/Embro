@@ -1,8 +1,8 @@
 > **Note:** original backend notes, kept for reference. See the main README for the current setup.
 
-# Lembro Backend
+# Embro Backend
 
-This document is the backend specification for the Lembro ecommerce frontend. The current frontend is a React/Vite prototype, so browser `localStorage` currently supplies demo products, categories, addresses, payment metadata, wishlist data, and authentication. The backend described here replaces those demo stores with secure, shared, persistent services.
+This document is the backend specification for the Embro ecommerce frontend. The current frontend is a React/Vite prototype, so browser `localStorage` currently supplies demo products, categories, addresses, payment metadata, wishlist data, and authentication. The backend described here replaces those demo stores with secure, shared, persistent services.
 
 The API should be implemented under:
 
@@ -554,7 +554,7 @@ Operational requirements:
 PORT=4000
 WEB_APP_URL=http://localhost:5173
 API_URL=http://localhost:4000
-DATABASE_URL=postgresql://user:password@localhost:5432/lembro
+DATABASE_URL=postgresql://user:password@localhost:5432/embro
 REDIS_URL=redis://localhost:6379
 
 JWT_ACCESS_SECRET=replace-in-production
@@ -564,7 +564,7 @@ GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 OAUTH_ALLOWED_REDIRECT_URIS=http://localhost:5173/auth/callback
 
-STORAGE_BUCKET=lembro-media
+STORAGE_BUCKET=embro-media
 STORAGE_REGION=us-east-1
 STORAGE_ENDPOINT=
 STORAGE_ACCESS_KEY=

@@ -1,5 +1,5 @@
 const apiUrl = (import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1').replace(/\/$/, '')
-const GUEST_KEY = 'lembro-guest-id'
+const GUEST_KEY = 'embro-guest-id'
 
 // The access token lives in memory only. It is never written to localStorage, so a script
 // injected into the page cannot steal a long-lived credential. The refresh token is an

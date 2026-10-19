@@ -99,7 +99,7 @@ function ProductForm({ product, categories, onClose, onSaved }) {
                   {form.variants.length > 1 && <button type="button" aria-label={`Remove variant ${index + 1}`} onClick={() => setForm((current) => ({ ...current, variants: current.variants.filter((item) => item.key !== variant.key) }))} className="btn btn-danger btn-sm"><Trash2 size={14} /> Remove</button>}
                 </div>
                 <div className="grid gap-4 sm:grid-cols-[auto_1fr]">
-                  <ImageField label="Image" folder="lembro/products" value={variant.image} onChange={(image) => setVariant(variant.key, 'image', image)} hint="Shown when this variant is selected." />
+                  <ImageField label="Image" folder="embro/products" value={variant.image} onChange={(image) => setVariant(variant.key, 'image', image)} hint="Shown when this variant is selected." />
                   <div className="grid gap-3 sm:grid-cols-3">
                     <label className="label">Colour<input maxLength={40} value={variant.color} onChange={(event) => setVariant(variant.key, 'color', event.target.value)} placeholder="e.g. Red" className="input" /></label>
                     <label className="label">Size<input maxLength={40} value={variant.size} onChange={(event) => setVariant(variant.key, 'size', event.target.value)} placeholder="e.g. Large" className="input" /></label>

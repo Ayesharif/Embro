@@ -38,7 +38,7 @@ export default function Admin() {
     <div className="min-h-screen bg-slate-950 text-white lg:grid lg:grid-cols-[15rem_1fr]">
       <Seo title="Admin" robots="noindex,nofollow" />
       <aside className="border-b border-white/10 bg-black/40 p-4 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r">
-        <p className="px-2 text-lg font-bold">Lembro admin</p>
+        <p className="px-2 text-lg font-bold">Embro admin</p>
         <p className="truncate px-2 text-xs text-white/55">{user.email}</p>
         <nav aria-label="Admin" className="mt-4 flex gap-1 overflow-x-auto lg:flex-col">
           {nav.map(({ to, label, icon: Icon }) => (

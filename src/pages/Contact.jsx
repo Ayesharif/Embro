@@ -32,7 +32,7 @@ export default function Contact() {
 
   return (
     <>
-      <Seo title="Contact" description="Get in touch with the Lembro team." jsonLd={{
+      <Seo title="Contact" description="Get in touch with the Embro team." jsonLd={{
         '@context': 'https://schema.org',
         '@type': 'ContactPage',
         name: `Contact ${site.name}`,

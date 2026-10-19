@@ -2,7 +2,7 @@ import { apiRequest } from '../../utils/api'
 
 // Uploads straight from the browser to Cloudinary using a short-lived signature from our API,
 // so the API secret never leaves the server.
-export async function uploadImage(file, folder = 'lembro/products') {
+export async function uploadImage(file, folder = 'embro/products') {
   if (!file.type.startsWith('image/')) throw new Error('Please choose an image file.')
   if (file.size > 8 * 1024 * 1024) throw new Error('Images must be smaller than 8 MB.')
   const signature = await apiRequest('/uploads/signature', { method: 'POST', body: { folder } })

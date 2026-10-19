@@ -39,7 +39,7 @@ export default function Footer() {
     <footer className="mt-12 border-t border-white/15 bg-black/70 text-white backdrop-blur-md">
       <div className="container-page grid gap-10 py-12 lg:grid-cols-[1.4fr_1fr_1fr_1.4fr]">
         <div>
-          <Link to="/" className="inline-block w-20" aria-label="Go to home"><img src={logo} alt="Lembro" className="w-full object-contain" /></Link>
+          <Link to="/" className="inline-block w-20" aria-label="Go to home"><img src={logo} alt="Embro" className="w-full object-contain" /></Link>
           <p className="mt-4 max-w-xs text-sm leading-6 text-white/65">{site.tagline}</p>
           <div className="mt-5 flex gap-3">
             {site.instagram && <a href={site.instagram} target="_blank" rel="noreferrer noopener" aria-label="Instagram" className="rounded-full border border-white/20 p-2 text-sm font-bold transition hover:border-white hover:bg-white/10">ig</a>}

@@ -71,7 +71,7 @@ function exportCsv(report, from, to) {
   const { totals, cash, series, inventory } = report
   const dollars = (cents) => (cents / 100).toFixed(2)
   const rows = [
-    ['Lembro accounts report', `${from} to ${to}`], [],
+    ['Embro accounts report', `${from} to ${to}`], [],
     ['Orders', totals.orders], ['Items sold', totals.itemsSold], ['Gross sales', dollars(totals.grossSales)], ['Discounts', dollars(totals.discounts)],
     ['Shipping charged', dollars(totals.shipping)], ['Net revenue (excl. tax)', dollars(totals.netRevenue)], ['Cost of goods', dollars(totals.cogs)],
     ['Profit', dollars(totals.profit)], ['Profit margin %', (totals.margin * 100).toFixed(1)], ['Tax collected', dollars(totals.tax)], ['Refunds', dollars(totals.refunds)],

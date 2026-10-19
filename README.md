@@ -1,4 +1,4 @@
-# Lembro - e-commerce web app
+# Embro - e-commerce web app
 
 React 19 + Vite + Tailwind CSS 4 storefront and admin portal, backed by an Express 5 / MongoDB API with Stripe payments.
 

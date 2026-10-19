@@ -13,7 +13,7 @@ Redis is an **optional speed-up** in front of MongoDB. MongoDB stays the only so
 Response bodies are stored exactly as they are sent, so the frontend sees the same shape either way.
 
 ### Invalidation: namespace versions
-Every cached entry's key contains the current version of the groups ("namespaces") it depends on, e.g. `lembro:v1:product-list:1700000000000:<hash>`. When something changes, the code does one atomic `INCR` on the namespace version. Old entries become unreachable immediately and expire on their own TTL. This means:
+Every cached entry's key contains the current version of the groups ("namespaces") it depends on, e.g. `embro:v1:product-list:1700000000000:<hash>`. When something changes, the code does one atomic `INCR` on the namespace version. Old entries become unreachable immediately and expire on their own TTL. This means:
 
 - no `FLUSHDB`, no `KEYS`/`SCAN`, no lists of keys to delete - O(1) per invalidation;
 - a request that read old data just before a change can only write under the *old* version, so it can never put stale data back;
@@ -59,7 +59,7 @@ Authentication (`/auth/*`, `/auth/me`), cart, wishlist, addresses, orders, payme
 ## Setup
 
 ### Install and start Redis locally
-- **Docker (any OS):** `docker run -d --name lembro-redis -p 6379:6379 redis:7-alpine`
+- **Docker (any OS):** `docker run -d --name embro-redis -p 6379:6379 redis:7-alpine`
 - **macOS:** `brew install redis && brew services start redis`
 - **Ubuntu/Debian:** `sudo apt install redis-server && sudo systemctl enable --now redis-server`
 - **Windows:** use WSL2 (Ubuntu steps) or Docker Desktop.
@@ -93,7 +93,7 @@ curl -si "http://localhost:4000/api/v1/products?limit=3" | grep -i x-cache   # X
 - **Counters:** `GET /api/v1/admin/cache` (admin token) returns `hits`, `misses`, `hitRatio`, per-endpoint counts, `errors`, `coalesced`, `invalidations`, `invalidationFailures` and `connected`. Counters are per API process and reset on restart.
 - **Health:** `GET /api/v1/health/ready` includes `"cache": "connected" | "unavailable" | "disabled"`. Redis never affects readiness.
 - **Logs:** JSON lines. Connection problems and invalidation failures are logged (rate-limited, no secrets). Set `CACHE_DEBUG=true` and `LOG_LEVEL=debug` to also log each hit/miss/invalidation (names only, never values).
-- **Redis side (development only):** `redis-cli --scan --pattern 'lembro:v1:*'`, `redis-cli ttl <key>`.
+- **Redis side (development only):** `redis-cli --scan --pattern 'embro:v1:*'`, `redis-cli ttl <key>`.
 - **Invalidation:** load `/api/v1/categories` twice (MISS, HIT), create a category in the admin, load again → MISS.
 - **Outage:** stop Redis; the same URLs keep working with `X-Cache: BYPASS`; start Redis and caching resumes by itself.
 

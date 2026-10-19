@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-slate-950/70 text-white backdrop-blur-md">
       <div className="container-page flex items-center justify-between gap-5 py-2">
-        <Link to="/" onClick={closeMenu} className="w-14 shrink-0" aria-label="Lembro home">
+        <Link to="/" onClick={closeMenu} className="w-14 shrink-0" aria-label="Embro home">
           <img className="h-full w-full object-contain" src={logo} alt="" />
         </Link>
 

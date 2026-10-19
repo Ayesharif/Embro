@@ -113,7 +113,7 @@ export default function ProductDetail() {
     url: new URL(productUrl, window.location.origin).toString(),
     image: gallery.length ? gallery : [mainImage],
     ...(product.category?.name ? { category: product.category.name } : {}),
-    brand: { '@type': 'Brand', name: 'Lembro' },
+    brand: { '@type': 'Brand', name: 'Embro' },
     offers: product.variants.map((variant) => ({
       '@type': 'Offer',
       url: new URL(productUrl, window.location.origin).toString(),

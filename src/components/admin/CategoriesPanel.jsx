@@ -25,7 +25,7 @@ function CategoryForm({ category, onClose, onSaved }) {
     <Modal title={category ? 'Edit category' : 'New category'} onClose={onClose}>
       <form onSubmit={submit} className="space-y-4">
         <label className="label">Name<input required minLength={2} value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} className="input" /></label>
-        <ImageField label="Category image" folder="lembro/categories" value={form.image} onChange={(image) => setForm((current) => ({ ...current, image }))} />
+        <ImageField label="Category image" folder="embro/categories" value={form.image} onChange={(image) => setForm((current) => ({ ...current, image }))} />
         <label className="label">Description<textarea rows={3} value={form.description} onChange={(event) => setForm({ ...form, description: event.target.value })} className="input" /></label>
         <div className="grid grid-cols-2 gap-4">
           <label className="label">Sort order<input type="number" min="0" value={form.sortOrder} onChange={(event) => setForm({ ...form, sortOrder: event.target.value })} className="input" /></label>

@@ -1,8 +1,8 @@
 > **Note:** this is the original design spec written before the security/UX overhaul. Where it disagrees with the code (auth flow, checkout, admin permissions, route list), the code and the main README are authoritative.
 
-# Lembro Backend Implementation Specification
+# Embro Backend Implementation Specification
 
-This document is the complete backend contract for the Lembro React/Vite ecommerce frontend. It describes the APIs, database models, relationships, request/response shapes, seed data, authentication, authorization, checkout, payments, inventory, uploads, admin operations, and deployment requirements.
+This document is the complete backend contract for the Embro React/Vite ecommerce frontend. It describes the APIs, database models, relationships, request/response shapes, seed data, authentication, authorization, checkout, payments, inventory, uploads, admin operations, and deployment requirements.
 
 The current frontend is a prototype. It currently uses browser `localStorage` and hardcoded demo arrays in several places. The backend must replace those values with a secure, shared source of truth.
 
@@ -922,7 +922,7 @@ Use a repeatable seed script. It must be safe to run in development and should u
 [
   {
     "name": "Admin User",
-    "email": "admin@lembro.example",
+    "email": "admin@embro.example",
     "password": "ChangeMe_Admin_123!",
     "role": "admin",
     "emailVerified": true
@@ -1174,13 +1174,13 @@ PORT=4000
 WEB_APP_URL=http://localhost:5173
 API_URL=http://localhost:4000
 
-MONGODB_URI=mongodb://localhost:27017/lembro
+MONGODB_URI=mongodb://localhost:27017/embro
 
 JWT_ACCESS_SECRET=replace-in-production
 JWT_REFRESH_SECRET=replace-in-production
 JWT_ACCESS_EXPIRES_IN=15m
 JWT_REFRESH_EXPIRES_IN=30d
-JWT_COOKIE_NAME=lembro_refresh
+JWT_COOKIE_NAME=embro_refresh
 
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=

@@ -47,7 +47,7 @@ function ShippingForm({ method, onClose, onSaved }) {
   return (
     <Modal title={method ? 'Edit shipping method' : 'New shipping method'} onClose={onClose}>
       <form onSubmit={submit} className="space-y-4">
-        <ImageField label="Image / logo" folder="lembro/shipping" value={form.image} onChange={(image) => setForm((current) => ({ ...current, image }))} hint="Optional - e.g. the courier's logo or a delivery icon." />
+        <ImageField label="Image / logo" folder="embro/shipping" value={form.image} onChange={(image) => setForm((current) => ({ ...current, image }))} hint="Optional - e.g. the courier's logo or a delivery icon." />
         <label className="label">Title<input required minLength={2} maxLength={80} value={form.name} onChange={set('name')} placeholder="Express delivery" className="input" /></label>
         <label className="label">Description (optional)<input maxLength={200} value={form.description} onChange={set('description')} placeholder="Tracked door-to-door delivery" className="input" /></label>
         <div className="grid grid-cols-3 gap-4">
