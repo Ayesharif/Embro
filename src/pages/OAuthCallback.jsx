@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
+<<<<<<< HEAD
+=======
+import Seo from '../component/Seo'
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
 import { PageLoader } from '../component/States'
 import { useAsyncOnce } from '../hooks/useAsyncOnce'
 import { apiRequest } from '../utils/api'
@@ -29,6 +33,10 @@ export default function OAuthCallback() {
   if (!error) return <PageLoader />
   return (
     <section className="container-page flex min-h-[60vh] flex-col items-center justify-center text-center">
+<<<<<<< HEAD
+=======
+      <Seo title="Sign-in failed" robots="noindex,nofollow" />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <h1 className="text-2xl font-bold">Sign-in failed</h1>
       <p className="mt-3 max-w-md text-white/70">{error}</p>
       <Link to="/auth/login" className="btn btn-primary mt-7">Back to sign in</Link>

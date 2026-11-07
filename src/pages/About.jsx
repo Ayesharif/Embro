@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import PageHeader from '../component/PageHeader'
 import Seo from '../component/Seo'
 import { site } from '../config/site'
+<<<<<<< HEAD
+=======
+import { organizationSchema } from '../utils/seoSchemas'
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
 
 const values = [
   { icon: Sparkles, title: 'Quality first', text: 'We choose materials that feel good in your hands and hold up to your best work.' },
@@ -13,7 +17,11 @@ const values = [
 export default function About() {
   return (
     <>
+<<<<<<< HEAD
       <Seo title="About us" description={site.tagline} />
+=======
+      <Seo title="About us" description={site.tagline} jsonLd={organizationSchema()} />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <PageHeader title="About us" crumbs={[{ label: 'About' }]} />
       <section className="container-page py-12">
         <div className="mx-auto max-w-3xl text-center">

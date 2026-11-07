@@ -4,6 +4,10 @@ import ProductCard from '../component/ProductCard'
 import ReviewsSection from '../component/ReviewsSection'
 import Seo from '../component/Seo'
 import Slider from '../component/Slider'
+<<<<<<< HEAD
+=======
+import { organizationSchema } from '../utils/seoSchemas'
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
 import { ErrorState, ProductGridSkeleton } from '../component/States'
 import { useFetch } from '../hooks/useFetch'
 
@@ -45,7 +49,11 @@ export default function Home() {
   const { data: categories } = useFetch('/categories')
   return (
     <>
+<<<<<<< HEAD
       <Seo description="Shop quality yarn, beads and threads for your next creative project." />
+=======
+      <Seo description="Shop quality yarn, beads and threads for your next creative project." jsonLd={organizationSchema()} />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <Slider />
 
       <div className="border-y border-white/10 bg-black/30">

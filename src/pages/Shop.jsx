@@ -44,10 +44,26 @@ export default function Shop() {
   const { data, error, loading, reload } = useFetch(`/products?${query}`)
   const activeCategory = categories?.data.find((item) => item.slug === category)
   const pagination = data?.pagination
+<<<<<<< HEAD
 
   return (
     <>
       <Seo title={activeCategory ? activeCategory.name : 'Products'} description="Browse our full range of yarn, beads and threads." />
+=======
+  const indexable = !q && !params.get('sort') && page === 1 && (!category || activeCategory)
+  const canonical = category && !q && !params.get('sort') && page === 1
+    ? `/products?category=${encodeURIComponent(category)}`
+    : '/products'
+
+  return (
+    <>
+      <Seo
+        title={activeCategory ? activeCategory.name : 'Products'}
+        description={activeCategory?.description || 'Browse our full range of yarn, beads and threads.'}
+        canonical={canonical}
+        robots={indexable ? 'index,follow' : 'noindex,follow'}
+      />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <PageHeader title={activeCategory ? activeCategory.name : 'Products'} crumbs={[{ label: 'Products' }]} />
 
       <section className="container-page grid gap-8 py-10 lg:grid-cols-[16rem_1fr]">

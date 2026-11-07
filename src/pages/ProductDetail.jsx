@@ -68,6 +68,10 @@ export default function ProductDetail() {
   const { id } = useParams()
   const { data, error, loading, reload } = useFetch(`/products/${id}`)
   const product = data?.product
+<<<<<<< HEAD
+=======
+  const { data: settings } = useFetch('/settings/public')
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
   const { data: related } = useFetch(product?.category?.slug ? `/products?category=${product.category.slug}&limit=4` : null)
 
   const { isAuthenticated } = useAuth()
@@ -102,6 +106,46 @@ export default function ProductDetail() {
 
   const gallery = [...new Set(variants.map((variant) => variant.image).filter(Boolean))]
   const mainImage = current.picked || chosen?.image || colorVariant?.image || gallery[0] || placeholder
+<<<<<<< HEAD
+=======
+  const currency = settings?.currency?.code || 'USD'
+  const productUrl = `/products/${product.slug || product.id}`
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.description,
+    url: new URL(productUrl, window.location.origin).toString(),
+    image: gallery.length ? gallery : [mainImage],
+    ...(product.category?.name ? { category: product.category.name } : {}),
+    brand: { '@type': 'Brand', name: 'Embro' },
+    offers: product.variants.map((variant) => ({
+      '@type': 'Offer',
+      url: new URL(productUrl, window.location.origin).toString(),
+      priceCurrency: currency,
+      price: variant.finalAmount.toFixed(2),
+      availability: variant.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      itemCondition: 'https://schema.org/NewCondition',
+    })),
+    ...(product.ratingCount > 0 ? {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: product.ratingAverage,
+        reviewCount: product.ratingCount,
+      },
+    } : {}),
+  }
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: window.location.origin },
+      { '@type': 'ListItem', position: 2, name: 'Products', item: new URL('/products', window.location.origin).toString() },
+      ...(product.category ? [{ '@type': 'ListItem', position: 3, name: product.category.name, item: new URL(`/products?category=${product.category.slug}`, window.location.origin).toString() }] : []),
+      { '@type': 'ListItem', position: product.category ? 4 : 3, name: product.name, item: new URL(productUrl, window.location.origin).toString() },
+    ],
+  }
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
   const colorAvailable = (option) => variants.some((variant) => variant.color === option && (!size || variant.size === size) && variant.stock > 0)
   const sizeAvailable = (option) => variants.some((variant) => variant.size === option && (!color || variant.color === color) && variant.stock > 0)
 
@@ -119,14 +163,29 @@ export default function ProductDetail() {
 
   return (
     <>
+<<<<<<< HEAD
       <Seo title={product.name} description={product.description.slice(0, 155)} />
+=======
+      <Seo
+        title={product.name}
+        description={product.description}
+        canonical={productUrl}
+        image={mainImage}
+        type="product"
+        jsonLd={[productSchema, breadcrumbSchema]}
+      />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <PageHeader title={product.name} crumbs={[{ label: 'Products', to: '/products' }, ...(product.category ? [{ label: product.category.name, to: `/products?category=${product.category.slug}` }] : []), { label: product.name }]} />
 
       <div className="container-page py-10">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <div className="panel flex aspect-square items-center justify-center overflow-hidden p-4">
+<<<<<<< HEAD
               <img src={mainImage} alt={product.name} className="h-full w-full object-contain" />
+=======
+              <img src={mainImage} alt={product.name} fetchPriority="high" className="h-full w-full object-contain" />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
             </div>
             {gallery.length > 1 && (
               <div className="mt-3 flex gap-3 overflow-x-auto">

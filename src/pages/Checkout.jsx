@@ -199,7 +199,11 @@ export default function Checkout() {
   if (order !== undefined) {
     return (
       <section className="container-page flex min-h-[60vh] flex-col items-center justify-center py-16 text-center fade-in">
+<<<<<<< HEAD
         <Seo title="Order confirmed" />
+=======
+        <Seo title="Order confirmed" robots="noindex,nofollow" />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
         <CheckCircle2 size={64} className="text-emerald-300" aria-hidden="true" />
         <h1 className="mt-5 text-3xl font-bold">Thank you for your order!</h1>
         {order?.paymentMethod === 'cod' ? <p className="mt-3 max-w-md text-white/75">Your order <strong>{order.number}</strong> is placed. Please pay <strong>{formatMoney(order.totalAmount, order.currency)}</strong> in cash when it arrives. We've emailed the details to {user.email}.</p> : order ? <p className="mt-3 text-white/75">Your order <strong>{order.number}</strong> is confirmed. A receipt is on its way to {user.email}.</p> : <p className="mt-3 max-w-md text-white/75">Your payment was received and your order is being finalised. It will appear under "My orders" in a moment.</p>}
@@ -214,7 +218,11 @@ export default function Checkout() {
   if (cart.items.length === 0) {
     return (
       <>
+<<<<<<< HEAD
         <Seo title="Checkout" />
+=======
+        <Seo title="Checkout" robots="noindex,nofollow" />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
         <PageHeader title="Checkout" crumbs={[{ label: 'Checkout' }]} />
         <div className="container-page py-12"><EmptyState icon={ShoppingBag} title="Your cart is empty" description="Add something you love, then come back to check out." action={<Link to="/products" className="btn btn-primary">Browse products</Link>} /></div>
       </>
@@ -239,7 +247,11 @@ export default function Checkout() {
 
   return (
     <>
+<<<<<<< HEAD
       <Seo title="Checkout" />
+=======
+      <Seo title="Checkout" robots="noindex,nofollow" />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <PageHeader title="Checkout" crumbs={[{ label: 'Cart' }, { label: 'Checkout' }]} />
       <div className="container-page grid gap-8 py-10 lg:grid-cols-[1fr_22rem]">
         <div className="panel p-5 sm:p-7">

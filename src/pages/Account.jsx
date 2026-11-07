@@ -227,7 +227,11 @@ export default function Account() {
 
   return (
     <>
+<<<<<<< HEAD
       <Seo title="My account" />
+=======
+      <Seo title="My account" robots="noindex,nofollow" />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <PageHeader title="My account" crumbs={[{ label: 'Account' }]} />
       <section className="container-page grid gap-8 py-10 lg:grid-cols-[16rem_1fr]">
         <aside className="panel h-fit p-4">

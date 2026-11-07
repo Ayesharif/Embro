@@ -29,7 +29,11 @@ Without SMTP settings the API prints verification and password-reset links to it
 | root | `npm run dev` / `build` / `preview` | Vite dev server, production build, preview |
 | root | `npm run lint` | ESLint for the frontend and backend |
 | backend | `npm run dev` / `start` | API with auto-reload / plain |
+<<<<<<< HEAD
 | backend | `npm test` | Unit + API tests (no database needed) |
+=======
+| backend | `npm test` | Unit + API tests (no database or Redis needed) |
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
 | backend | `npm run seed` | Idempotent seed data |
 | backend | `npm run migrate:variants` | Converts products created before the variants change (dry run; add `-- --apply` to write) |
 
@@ -43,6 +47,16 @@ Backend (`backend/.env`, see `.env.example`):
 - `CURRENCY`, `COD_ENABLED` and `COD_MAX_AMOUNT` only seed the initial store settings; afterwards manage them in **Admin → Settings**.
 - Optional: SMTP (`MAIL_*`), Google sign-in (`GOOGLE_*`, redirect URI `{API_PUBLIC_URL}/api/v1/auth/oauth/google`), Cloudinary uploads (`CLOUDINARY_*`), `TAX_RATE`.
 
+<<<<<<< HEAD
+=======
+Frontend SEO configuration:
+
+- Set `VITE_SITE_URL` to the canonical public storefront origin in production.
+- Optionally set `VITE_SITE_LOGO` to an absolute or site-relative logo URL and `VITE_STORE_CURRENCY` as the build-time fallback currency.
+- The backend exposes `GET /robots.txt` and `GET /sitemap.xml`. These use `WEB_APP_URL` and include only active categories and published, sellable products.
+- Product pages load the current currency from the public settings endpoint and emit Product/Offer structured data only for API-backed products. Approved ratings are included only when genuine review data exists.
+
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
 Stripe webhook: point an endpoint at `{API_PUBLIC_URL}/api/v1/payments/webhook` for `payment_intent.succeeded` and `charge.refunded`. Locally: `stripe listen --forward-to localhost:4000/api/v1/payments/webhook`.
 
 ## How it works
@@ -65,6 +79,13 @@ Stripe webhook: point an endpoint at `{API_PUBLIC_URL}/api/v1/payments/webhook` 
 - All request bodies/queries are validated with strict schemas; unknown fields are dropped (no mass assignment) and non-string values are rejected (no operator injection).
 - Card data never touches this app: Stripe Elements collects it.
 
+<<<<<<< HEAD
+=======
+## Caching (optional)
+
+Set `REDIS_URL` to put a Redis cache in front of the read-heavy public endpoints (products, categories, settings, shipping, featured reviews) and the admin dashboard/accounts reports. MongoDB stays the source of truth, the API works the same without Redis, and a Redis outage just means requests are served from MongoDB. See [`docs/CACHING.md`](docs/CACHING.md) for setup, TTLs, invalidation, how to disable it and how to verify it (`X-Cache: HIT/MISS` response header, `GET /api/v1/admin/cache` for hit/miss counters).
+
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
 ## Known limitations
 
 - Each variant is one colour/size combination you create yourself (there is no automatic colour x size grid generator).

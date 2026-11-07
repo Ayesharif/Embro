@@ -4,7 +4,11 @@ import Seo from '../component/Seo'
 export default function NotFound() {
   return (
     <section className="container-page flex min-h-[60vh] flex-col items-center justify-center py-16 text-center">
+<<<<<<< HEAD
       <Seo title="Page not found" />
+=======
+      <Seo title="Page not found" robots="noindex,follow" />
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <p className="text-6xl font-extrabold text-white/30">404</p>
       <h1 className="mt-4 text-3xl font-bold">We couldn't find that page</h1>
       <p className="mt-2 max-w-md text-white/65">The link may be broken or the page may have moved.</p>

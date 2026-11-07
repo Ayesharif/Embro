@@ -2,6 +2,12 @@
 export const site = {
   name: 'Embro',
   tagline: 'Quality materials and beautiful details for every creative project.',
+<<<<<<< HEAD
+=======
+  url: (import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, ''),
+  logo: import.meta.env.VITE_SITE_LOGO || '',
+  currency: (import.meta.env.VITE_STORE_CURRENCY || 'USD').toUpperCase(),
+>>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
   email: import.meta.env.VITE_CONTACT_EMAIL || 'hello@embro.example',
   phone: import.meta.env.VITE_CONTACT_PHONE || '+92 300 0000000',
   address: import.meta.env.VITE_CONTACT_ADDRESS || '123 Craft Street, Lahore, Pakistan',
