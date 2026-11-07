@@ -12,11 +12,7 @@ export default function Wishlist() {
 
   return (
     <>
-<<<<<<< HEAD
-      <Seo title="Wishlist" />
-=======
       <Seo title="Wishlist" robots="noindex,nofollow" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <PageHeader title="Wishlist" crumbs={[{ label: 'Wishlist' }]} />
       <section className="container-page py-10">
         {items.length === 0 ? (

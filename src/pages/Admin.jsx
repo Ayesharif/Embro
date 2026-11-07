@@ -36,11 +36,7 @@ export default function Admin() {
   const { user, signOut } = useAuth()
   return (
     <div className="min-h-screen bg-slate-950 text-white lg:grid lg:grid-cols-[15rem_1fr]">
-<<<<<<< HEAD
-      <Seo title="Admin" />
-=======
       <Seo title="Admin" robots="noindex,nofollow" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <aside className="border-b border-white/10 bg-black/40 p-4 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r">
         <p className="px-2 text-lg font-bold">Embro admin</p>
         <p className="truncate px-2 text-xs text-white/55">{user.email}</p>

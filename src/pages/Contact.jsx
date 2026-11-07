@@ -32,16 +32,12 @@ export default function Contact() {
 
   return (
     <>
-<<<<<<< HEAD
-      <Seo title="Contact" description="Get in touch with the Embro team." />
-=======
       <Seo title="Contact" description="Get in touch with the Embro team." jsonLd={{
         '@context': 'https://schema.org',
         '@type': 'ContactPage',
         name: `Contact ${site.name}`,
         url: new URL('/contact', window.location.origin).toString(),
       }} />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <PageHeader title="Contact us" crumbs={[{ label: 'Contact' }]} />
       <section className="container-page grid gap-8 py-10 lg:grid-cols-[1fr_1.3fr]">
         <div className="space-y-4">

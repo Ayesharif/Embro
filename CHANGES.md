@@ -37,12 +37,9 @@
 ## Added in the fifth round
 - **Currency setting (Admin → Settings):** pick the store currency (PKR included). Converting existing prices uses an exchange rate you confirm, with live-rate suggestion, rounding, preview and a typed confirmation. Prices, checkout, Stripe charges, invoices, emails and reports all follow the setting; old orders keep their original currency.
 - **Cash-on-delivery limit** moved into the settings page (it is stored in the database and converted along with prices).
-<<<<<<< HEAD
-=======
 
 ## Added in the sixth round
 - **Redis caching** (optional, fail-open) for public catalogue endpoints and the admin dashboard/accounts reports, with version-based invalidation after every relevant successful write, request coalescing, structured logging, hit/miss counters (`GET /api/v1/admin/cache`) and a purge endpoint. Private, per-user and transactional endpoints are deliberately not cached. See `docs/CACHING.md`. Run `npm install` in `backend/` (new `redis` dependency).
 
 ## Vercel
 - `backend/vercel.json`, `backend/api/index.js` (serverless entry) and `backend/.vercelignore` for deploying the API to Vercel; MongoDB pool size is capped on Vercel (`MONGODB_MAX_POOL_SIZE` to override).
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674

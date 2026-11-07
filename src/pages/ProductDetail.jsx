@@ -68,10 +68,7 @@ export default function ProductDetail() {
   const { id } = useParams()
   const { data, error, loading, reload } = useFetch(`/products/${id}`)
   const product = data?.product
-<<<<<<< HEAD
-=======
   const { data: settings } = useFetch('/settings/public')
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
   const { data: related } = useFetch(product?.category?.slug ? `/products?category=${product.category.slug}&limit=4` : null)
 
   const { isAuthenticated } = useAuth()
@@ -106,8 +103,6 @@ export default function ProductDetail() {
 
   const gallery = [...new Set(variants.map((variant) => variant.image).filter(Boolean))]
   const mainImage = current.picked || chosen?.image || colorVariant?.image || gallery[0] || placeholder
-<<<<<<< HEAD
-=======
   const currency = settings?.currency?.code || 'USD'
   const productUrl = `/products/${product.slug || product.id}`
   const productSchema = {
@@ -145,7 +140,6 @@ export default function ProductDetail() {
       { '@type': 'ListItem', position: product.category ? 4 : 3, name: product.name, item: new URL(productUrl, window.location.origin).toString() },
     ],
   }
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
   const colorAvailable = (option) => variants.some((variant) => variant.color === option && (!size || variant.size === size) && variant.stock > 0)
   const sizeAvailable = (option) => variants.some((variant) => variant.size === option && (!color || variant.color === color) && variant.stock > 0)
 
@@ -163,9 +157,6 @@ export default function ProductDetail() {
 
   return (
     <>
-<<<<<<< HEAD
-      <Seo title={product.name} description={product.description.slice(0, 155)} />
-=======
       <Seo
         title={product.name}
         description={product.description}
@@ -174,18 +165,13 @@ export default function ProductDetail() {
         type="product"
         jsonLd={[productSchema, breadcrumbSchema]}
       />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <PageHeader title={product.name} crumbs={[{ label: 'Products', to: '/products' }, ...(product.category ? [{ label: product.category.name, to: `/products?category=${product.category.slug}` }] : []), { label: product.name }]} />
 
       <div className="container-page py-10">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <div className="panel flex aspect-square items-center justify-center overflow-hidden p-4">
-<<<<<<< HEAD
-              <img src={mainImage} alt={product.name} className="h-full w-full object-contain" />
-=======
               <img src={mainImage} alt={product.name} fetchPriority="high" className="h-full w-full object-contain" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
             </div>
             {gallery.length > 1 && (
               <div className="mt-3 flex gap-3 overflow-x-auto">

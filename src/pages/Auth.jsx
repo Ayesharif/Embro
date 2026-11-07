@@ -69,11 +69,7 @@ export function Login() {
 
   return (
     <AuthShell title="Welcome back" subtitle="Sign in to track orders and checkout faster." footer={<>New here? <Link to="/auth/register" className="font-semibold text-white underline">Create an account</Link></>}>
-<<<<<<< HEAD
-      <Seo title="Sign in" />
-=======
       <Seo title="Sign in" robots="noindex,nofollow" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <form onSubmit={submit} className="space-y-4">
         <Notice type="success">{location.state?.message}</Notice>
         <label className="label" htmlFor="login-email">Email<input id="login-email" type="email" required autoComplete="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="you@example.com" className="input" /></label>
@@ -109,11 +105,7 @@ export function Register() {
   if (state.done) {
     return (
       <AuthShell title="Check your inbox">
-<<<<<<< HEAD
-        <Seo title="Create account" />
-=======
         <Seo title="Create account" robots="noindex,nofollow" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
         <CheckCircle2 className="mb-4 text-emerald-300" size={40} aria-hidden="true" />
         <p className="text-white/80">{state.done}</p>
         <Link to="/auth/login" className="btn btn-primary mt-7">Go to sign in</Link>
@@ -123,11 +115,7 @@ export function Register() {
 
   return (
     <AuthShell title="Create your account" subtitle="Join to save favourites and check out in seconds." footer={<>Already registered? <Link to="/auth/login" className="font-semibold text-white underline">Sign in</Link></>}>
-<<<<<<< HEAD
-      <Seo title="Create account" />
-=======
       <Seo title="Create account" robots="noindex,nofollow" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <form onSubmit={submit} className="space-y-4" noValidate>
         <label className="label">Full name<input required autoComplete="name" value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} className={`input ${state.fields.name ? 'input-error' : ''}`} /><FieldError>{state.fields.name}</FieldError></label>
         <label className="label">Email<input type="email" required autoComplete="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} className={`input ${state.fields.email ? 'input-error' : ''}`} /><FieldError>{state.fields.email}</FieldError></label>
@@ -162,11 +150,7 @@ export function ForgotPassword() {
 
   return (
     <AuthShell title="Forgot password?" subtitle="Enter your email and we'll send you a reset link." footer={<Link to="/auth/login" className="font-semibold text-white underline">Back to sign in</Link>}>
-<<<<<<< HEAD
-      <Seo title="Reset password" />
-=======
       <Seo title="Reset password" robots="noindex,nofollow" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <form onSubmit={submit} className="space-y-4">
         <label className="label">Email<input type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} className="input" /></label>
         <Notice>{state.error}</Notice>
@@ -195,15 +179,11 @@ export function ResetPassword() {
     }
   }
 
-  if (!token) return <AuthShell title="Invalid link" subtitle="This password reset link is missing its token."><Link to="/auth/forgot-password" className="btn btn-primary">Request a new link</Link></AuthShell>
+  if (!token) return <AuthShell title="Invalid link" subtitle="This password reset link is missing its token."><Seo title="Invalid link" robots="noindex,nofollow" /><Link to="/auth/forgot-password" className="btn btn-primary">Request a new link</Link></AuthShell>
 
   return (
     <AuthShell title="Choose a new password" subtitle="Pick something you haven't used elsewhere.">
-<<<<<<< HEAD
-      <Seo title="Choose a new password" />
-=======
       <Seo title="Choose a new password" robots="noindex,nofollow" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <form onSubmit={submit} className="space-y-4">
         <PasswordInput id="reset-password" autoComplete="new-password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="At least 8 characters" />
         <Notice>{state.error}</Notice>
@@ -219,15 +199,11 @@ export function VerifyEmail() {
   // One-time tokens: the request must run exactly once even though React may mount twice in dev.
   const result = useAsyncOnce(token ? `verify:${token}` : null, () => apiRequest('/auth/verify-email', { method: 'POST', body: { token } }))
 
-  if (!token) return <AuthShell title="Invalid link" subtitle="This verification link is missing its token."><Link to="/auth/login" className="btn btn-primary">Go to sign in</Link></AuthShell>
+  if (!token) return <AuthShell title="Invalid link" subtitle="This verification link is missing its token."><Seo title="Invalid link" robots="noindex,nofollow" /><Link to="/auth/login" className="btn btn-primary">Go to sign in</Link></AuthShell>
   if (result.pending) return <PageLoader />
   return (
     <AuthShell title={result.error ? 'Verification failed' : 'Email verified'}>
-<<<<<<< HEAD
-      <Seo title="Verify email" />
-=======
       <Seo title="Verify email" robots="noindex,nofollow" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       {result.error ? <XCircle className="mb-4 text-red-300" size={40} aria-hidden="true" /> : <CheckCircle2 className="mb-4 text-emerald-300" size={40} aria-hidden="true" />}
       <p className="text-white/80">{result.error ? result.error.message : result.data.message}</p>
       <Link to="/auth/login" className="btn btn-primary mt-7">Go to sign in</Link>

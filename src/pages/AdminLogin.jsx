@@ -34,11 +34,7 @@ export default function AdminLogin() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-950 px-4 text-white">
-<<<<<<< HEAD
-      <Seo title="Admin sign in" />
-=======
       <Seo title="Admin sign in" robots="noindex,nofollow" />
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
       <form onSubmit={submit} className="panel w-full max-w-sm space-y-4 p-8">
         <ShieldCheck size={36} className="text-cyan-200" aria-hidden="true" />
         <h1 className="text-2xl font-bold">Admin portal</h1>

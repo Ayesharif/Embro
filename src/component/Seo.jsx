@@ -1,13 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { site } from '../config/site'
 
-<<<<<<< HEAD
-export default function Seo({ title, description }) {
-  return (
-    <Helmet>
-      <title>{title ? `${title} | ${site.name}` : `${site.name} - Craft supplies for creative people`}</title>
-      {description && <meta name="description" content={description} />}
-=======
 export default function Seo({
   title,
   description,
@@ -39,7 +32,6 @@ export default function Seo({
       {description && <meta name="twitter:description" content={description.slice(0, 200)} />}
       {imageUrl && <meta name="twitter:image" content={imageUrl} />}
       {schemas.map((schema, index) => <script key={index} type="application/ld+json">{JSON.stringify(schema)}</script>)}
->>>>>>> 3ec329e1f1ae8b52e1f34d388f14da1f4159a674
     </Helmet>
   )
 }
